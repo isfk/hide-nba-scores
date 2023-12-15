@@ -17,3 +17,10 @@
 ```sh
 extension://gjonjhajfimjhfnfgcgianedgnhmjpkb/popup/popup.html
 ```
+
+## 效果
+
+<img width="277" alt="iShot_2023-12-15_13 45 53" src="https://github.com/isfk/hide-nba-scores/assets/70327450/693c66c2-3cfd-487a-b256-78b6d33a0d1e">
+<img width="632" alt="iShot_2023-12-15_13 46 16" src="https://github.com/isfk/hide-nba-scores/assets/70327450/f2b871a8-08f1-4f03-a065-5da9c3766872">
+<img width="1281" alt="iShot_2023-12-15_13 46 30" src="https://github.com/isfk/hide-nba-scores/assets/70327450/f6b837d4-2306-4153-9a00-0889ee0b4b9d">
+<img width="768" alt="iShot_2023-12-15_13 46 45" src="https://github.com/isfk/hide-nba-scores/assets/70327450/9c484d01-460a-493e-ac66-ea7a48e10964">
