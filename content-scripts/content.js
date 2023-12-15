@@ -1,30 +1,38 @@
 function hideScores() {
     chrome.storage.local.get(["htns_button_key"]).then((result) => {
         let key = result.htns_button_key
-
         if (key == "2") { // 隐藏
             // https://sports.qq.com/nba
             $("li.team span.score").each(function (index) {
-                $(this).text("**")
+                $(this).css("backgroundColor", "#555")
             })
 
             // https://sports.qq.com/nba-stats/schedule
             $("div.list-time div.row div.goal").each(function (index) {
-                let label = $(this).attr("aria-label");
-                if (!label) {
-                    return
-                }
-                if (label == "比分：-") {
-                    return
-                }
-                let score = "** - **"
-                let scorehtml = '<div style="position: absolute; background: #006bb7; color: white; width: 100%; text-align: center;"><span style="display: block; width: 100%; text-align: center">' + score + '</span></div>'
-                $(this).append(scorehtml)
+                $(this).css("backgroundColor", "#606060")
             })
 
             // https://kbs.sports.qq.com/
-            $("div.team-info.match-situation-data").append("<div style='position:absolute; top: 0; width: 100%; height: 100%; background-color: #006bb7; display: flex; align-items: center; justify-content:center; color: white; font-size: 14px;'>隐藏比分信息</div>")
-            $("#head-box .score").text("**")
+            $("#head-box .score").each(function (index) {
+                $(this).css("backgroundColor", "white")
+            })
+            $("div.match-situation").css("display", "none")
+        } else {
+            // https://sports.qq.com/nba
+            $("li.team span.score").each(function (index) {
+                $(this).css("backgroundColor", "transparent")
+            })
+
+            // https://sports.qq.com/nba-stats/schedule
+            $("div.list-time div.row div.goal").each(function (index) {
+                $(this).css("backgroundColor", "transparent")
+            })
+
+            // https://kbs.sports.qq.com/
+            $("#head-box .score").each(function (index) {
+                $(this).css("backgroundColor", "transparent")
+            })
+            $("div.match-situation").css("display", "block")
         }
     })
 }
@@ -70,3 +78,7 @@ function init() {
 }
 
 init()
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    hideScores()
+});

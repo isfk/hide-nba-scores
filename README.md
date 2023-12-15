@@ -12,6 +12,8 @@
 
 ## 开发调试
 
+> 使用背景色或`display:none`进行隐藏
+
 ```sh
 extension://gjonjhajfimjhfnfgcgianedgnhmjpkb/popup/popup.html
 ```
