@@ -18,12 +18,12 @@ function hideScores() {
                     return
                 }
                 let score = "** - **"
-                let scorehtml = '<div style="position: absolute; background: #db1414; color: white; width: 100%; text-align: center;"><span style="display: block; width: 100%; text-align: center">' + score + '</span></div>'
+                let scorehtml = '<div style="position: absolute; background: #006bb7; color: white; width: 100%; text-align: center;"><span style="display: block; width: 100%; text-align: center">' + score + '</span></div>'
                 $(this).append(scorehtml)
             })
 
             // https://kbs.sports.qq.com/
-            $("div.team-info.match-situation-data").append("<div style='position:absolute; top: 0; width: 100%; height: 100%; background-color: red; display: flex; align-items: center; justify-content:center; color: white; font-size: 14px;'>隐藏比分信息</div>")
+            $("div.team-info.match-situation-data").append("<div style='position:absolute; top: 0; width: 100%; height: 100%; background-color: #006bb7; display: flex; align-items: center; justify-content:center; color: white; font-size: 14px;'>隐藏比分信息</div>")
             $("#head-box .score").text("**")
         }
     })
