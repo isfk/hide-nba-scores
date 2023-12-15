@@ -41,7 +41,7 @@ function init() {
     // 首页
     if (window.location.href == 'https://sports.qq.com/nba') {
         var heartBeat = setInterval(() => {
-            var wantedEl = document.querySelector('div.vonline li.team span.score');
+            var wantedEl = document.querySelector('li.team span.score');
             if (wantedEl) {
                 clearInterval(heartBeat);
                 hideScores();
