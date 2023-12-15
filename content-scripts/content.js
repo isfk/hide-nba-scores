@@ -1,30 +1,32 @@
 function hideScores() {
-    // https://sports.qq.com/nba
-    $("div.vonline li.team span.score").each(function (index) {
-        $(this).text("**")
-    })
+    chrome.storage.local.get(["htns_button_key"]).then((result) => {
+        let key = result.htns_button_key
 
-    // https://sports.qq.com/nba-stats/schedule
-    $("div.list-time div.row div.goal").each(function (index) {
-        let label = $(this).attr("aria-label");
-        if (!label) {
-            return
-        }
-        if (label == "比分：-") {
-            return
-        }
-        let score = ""
-        if (label.includes("-")) {
-            score = "负 - 胜"
-        } else {
-            score = "胜 - 负"
-        }
-        let scorehtml = '<div style="position: absolute; background: #db1414; color: white; width: 100%; text-align: center;"><span style="display: block; width: 100%; text-align: center">' + score + '</span></div>'
-        $(this).append(scorehtml)
-    })
+        if (key == "2") { // 隐藏
+            // https://sports.qq.com/nba
+            $("li.team span.score").each(function (index) {
+                $(this).text("**")
+            })
 
-    // https://kbs.sports.qq.com/
-    $("div.team-info.match-situation-data").append("<div style='position:absolute; top: 0; width: 100%; height: 100%; background-color: red; display: flex; align-items: center; justify-content:center; color: white; font-size: 14px;'>隐藏比分信息</div>")
+            // https://sports.qq.com/nba-stats/schedule
+            $("div.list-time div.row div.goal").each(function (index) {
+                let label = $(this).attr("aria-label");
+                if (!label) {
+                    return
+                }
+                if (label == "比分：-") {
+                    return
+                }
+                let score = "** - **"
+                let scorehtml = '<div style="position: absolute; background: #db1414; color: white; width: 100%; text-align: center;"><span style="display: block; width: 100%; text-align: center">' + score + '</span></div>'
+                $(this).append(scorehtml)
+            })
+
+            // https://kbs.sports.qq.com/
+            $("div.team-info.match-situation-data").append("<div style='position:absolute; top: 0; width: 100%; height: 100%; background-color: red; display: flex; align-items: center; justify-content:center; color: white; font-size: 14px;'>隐藏比分信息</div>")
+            $("#head-box .score").text("**")
+        }
+    })
 }
 
 function init() {

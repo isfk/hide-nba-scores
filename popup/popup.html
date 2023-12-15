@@ -8,6 +8,7 @@
             font-size: 18px;
             text-align: center;
             color: #006bb7;
+            padding-top: 5px;
         }
 
         .button {
@@ -17,6 +18,7 @@
             font-size: 12px;
             padding: 5px 10px;
             margin: 5px;
+            display: block;
         }
 
         .button:hover {
@@ -27,8 +29,14 @@
 </head>
 
 <body>
-    <div style="width: 250px;">
+    <div style="width: 220px;">
         <h1>隐藏腾讯NBA比分情况</h1>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <button class="button" id="show-scores">显示比分</button>
+            <button class="button" id="hide-scores">隐藏比分</button>
+        </div>
+        <script src="../lib/jquery.min.js"></script>
         <script src="popup.js"></script>
     </div>
 </body>
